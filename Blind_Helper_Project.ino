@@ -57,8 +57,8 @@ void loop() {
 
   int ForwradUltrasonic = Ultrasonic.ReadForwrad();
   int RightUltrasonic = Ultrasonic.ReadRight();
-  int LeftUltrasonic = Ultrasonic.ReadRight();
-  int BackUltrasonic = Ultrasonic.ReadRight();
+  int LeftUltrasonic = Ultrasonic.ReadLeft();
+  int BackUltrasonic = Ultrasonic.ReadBack();
 
   if (ForwradUltrasonic < 35) {
     Buzzers.Buzzer('F', true);
@@ -69,7 +69,7 @@ void loop() {
   }
 
   if (LeftUltrasonic < 30) {
-    Buzzers.Buzzer('L', true);
+    Buzzers.Buzzer('L', HIGH);
   }
 
   if (BackUltrasonic < 35) {

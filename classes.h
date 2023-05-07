@@ -16,7 +16,7 @@ public:
       case 'F':
         if (Sound == true)
           tone(ForwardBuzzer, 30);
-        else if(Sound == false)
+        else if (Sound == false)
           tone(ForwardBuzzer, 0);
         break;
 
@@ -35,12 +35,12 @@ public:
       case 'A':
         if (Sound == true)
           tone(LeftBuzzer, 30);
-        else if(Sound == false)
-          digitalWrite(LeftBuzzer,LOW);
+        else if (Sound == false)
+          digitalWrite(LeftBuzzer, LOW);
 
         digitalWrite(BackBuzzer, Sound);
         digitalWrite(RightBuzzer, Sound);
-        digitalWrite(LeftBuzzer, Sound);
+        digitalWrite(LeftBuzzer, LOW);
     }
   }
 };
@@ -52,6 +52,7 @@ private:
   int ForwardCM = 0;
   int RightCM = 0;
   int LeftCM = 0;
+  int BackCM = 0;
 public:
   int ReadForwrad() {
     ForwardCM = ForwardUltrasonic.ping_cm();
@@ -78,5 +79,14 @@ public:
       LeftCM = 300;
 
     return LeftCM;
+  }
+
+  int ReadBack() {
+    BackCM = BackUltrasonic.ping_cm();
+
+    if (BackCM == 0) {
+      BackCM = 300;
+    }
+    return BackCM;
   }
 };
