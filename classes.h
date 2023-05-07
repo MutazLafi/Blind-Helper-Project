@@ -15,9 +15,9 @@ public:
     switch (buzzer) {
       case 'F':
         if (Sound == true)
-          tone(LeftBuzzer, 30);
+          tone(ForwardBuzzer, 30);
         else if(Sound == false)
-          tone(LeftBuzzer, 0);
+          tone(ForwardBuzzer, 0);
         break;
 
       case 'B':
