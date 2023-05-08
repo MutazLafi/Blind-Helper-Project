@@ -64,7 +64,7 @@ public:
   }
 
   int ReadRight() {
-    RightCM = LeftUltrasonic.ping_cm();
+    RightCM = RightUltrasonic.ping_cm();
 
     if (RightCM == 0)
       RightCM = 300;
@@ -77,7 +77,7 @@ public:
 
     if (LeftCM == 0)
       LeftCM = 300;
-
+    
     return LeftCM;
   }
 

@@ -52,7 +52,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   Buzzers.Buzzer('A', false);
 
   int ForwradUltrasonic = Ultrasonic.ReadForwrad();
@@ -69,7 +69,8 @@ void loop() {
   }
 
   if (LeftUltrasonic < 30) {
-    Buzzers.Buzzer('L', HIGH);
+    Buzzers.Buzzer('L', true);
+    delay(500);
   }
 
   if (BackUltrasonic < 35) {
