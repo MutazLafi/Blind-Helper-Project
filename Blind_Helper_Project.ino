@@ -3,14 +3,14 @@
 #define ForwardTrigPin 4  // defines for all Ultrasonic Sensors Pins
 #define ForwardEchoPin 3
 
-#define RightTrigPin 6
-#define RightEchoPin 5
+#define BackTrigPin 6
+#define BackEchoPin 5
+
+#define RightTrigPin 11
+#define RightEchoPin 10
 
 #define LeftTrigPin 8
 #define LeftEchoPin 7
-
-#define BackTrigPin 11
-#define BackEchoPin 10
 
 
 #define ForwardBuzzer A0
