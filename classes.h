@@ -33,14 +33,10 @@ public:
         break;
 
       case 'A':
-        if (Sound == true)
-          tone(LeftBuzzer, 30);
-        else if (Sound == false)
-          digitalWrite(LeftBuzzer, LOW);
 
         digitalWrite(BackBuzzer, Sound);
         digitalWrite(RightBuzzer, Sound);
-        digitalWrite(LeftBuzzer, LOW);
+        digitalWrite(LeftBuzzer, Sound);
     }
   }
 };
@@ -77,7 +73,7 @@ public:
 
     if (LeftCM == 0)
       LeftCM = 300;
-    
+
     return LeftCM;
   }
 
@@ -87,6 +83,10 @@ public:
     if (BackCM == 0) {
       BackCM = 300;
     }
+
+    Serial.print("Back:");
+    Serial.println(BackCM);  // Debug Serial Statement
+
     return BackCM;
   }
 };

@@ -75,5 +75,6 @@ void loop() {
 
   if (BackUltrasonic < 35) {
     Buzzers.Buzzer('B', true);
+    delay(200);
   }
 }
