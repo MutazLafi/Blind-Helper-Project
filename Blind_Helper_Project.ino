@@ -62,19 +62,21 @@ void loop() {
 
   if (ForwradUltrasonic < 35) {
     Buzzers.Buzzer('F', true);
+    delay(500);
   }
 
   if (RightUltrasonic < 30) {
     Buzzers.Buzzer('R', true);
+    delay(350); 
   }
 
   if (LeftUltrasonic < 30) {
     Buzzers.Buzzer('L', true);
-    delay(500);
+    delay(200);
   }
 
   if (BackUltrasonic < 35) {
     Buzzers.Buzzer('B', true);
-    delay(200);
+    delay(100);
   }
 }
