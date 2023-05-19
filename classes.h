@@ -14,10 +14,7 @@ public:
 
     switch (buzzer) {
       case 'F':
-        if (Sound == true)
-          tone(ForwardBuzzer, 30);
-        else if (Sound == false)
-          tone(ForwardBuzzer, 0);
+        digitalWrite(ForwardBuzzer, Sound);
         break;
 
       case 'B':
@@ -33,10 +30,11 @@ public:
         break;
 
       case 'A':
-
+        digitalWrite(ForwardBuzzer, Sound);
         digitalWrite(BackBuzzer, Sound);
         digitalWrite(RightBuzzer, Sound);
         digitalWrite(LeftBuzzer, Sound);
+        
     }
   }
 };
@@ -64,7 +62,7 @@ public:
 
     if (RightCM == 0)
       RightCM = 300;
-
+    Serial.println(RightCM);
     return RightCM;
   }
 
@@ -83,9 +81,6 @@ public:
     if (BackCM == 0) {
       BackCM = 300;
     }
-
-    Serial.print("Back:");
-    Serial.println(BackCM);  // Debug Serial Statement
 
     return BackCM;
   }
