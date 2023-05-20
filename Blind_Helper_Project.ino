@@ -13,12 +13,12 @@
 #define LeftEchoPin 7
 
 
-#define ForwardBuzzer A0
+#define ForwardBuzzer A0  // define the pins for the Buzzers
 #define LeftBuzzer A1
 #define RightBuzzer A2
 #define BackBuzzer A3
 
-const int MaxDistance = 300;  // Maximum distance for all Sensors
+const int MaxDistance = 300;  // Maximum distance for all Ultrasonic Sensors
 
 // Objects For all Ultrasonic Sensors
 
@@ -30,53 +30,78 @@ NewPing LeftUltrasonic(LeftTrigPin, LeftEchoPin, MaxDistance);
 
 NewPing BackUltrasonic(BackTrigPin, BackEchoPin, MaxDistance);
 
-#define DEBUG  // Undefined to Hide Serial Data
+#define DEBUG  // Debug Define For Ddebug Serial Statments (Un define it to Hide Serial Debug)
 
-#include "classes.h"
+#include "classes.h"  // include The The File classes.h That Contain classes
 
-BuzzerSounds Buzzers;
+BuzzerSounds Buzzers;  //  Objects For classes
 UltrasonicSensor Ultrasonic;
 
-void setup() {
+void setup() {  // Setup
 
   Serial.println("Blinds Helper Project By Mutaz Lafi.");
   delay(500);
 
   Serial.println("Starting...");
 
-#ifdef DEBUG
+#ifdef DEBUG  // if Debug defined enable Serial Debugging
   Serial.begin(9600);
 #endif
 
-  Buzzers.begin();
+  Buzzers.begin();  // start the Buzzers
+
+  
 }
 
-void loop() {
+void loop() {  // void Loop
 
-  Buzzers.Buzzer('A', false);
+  Buzzers.Buzzer('A', false);  // turn all Buzzers off
 
-  int ForwradUltrasonic = Ultrasonic.ReadForwrad();
+  Serial.println("All Buzzers off");  // Debug Statement
+
+
+  Serial.println("Getting Data From Ultrasonics Sensors.....");  // Debug statement
+
+  int ForwradUltrasonic = Ultrasonic.ReadForwrad();  // Put All Ultrasonics Read Functions into intgers Variables
   int RightUltrasonic = Ultrasonic.ReadRight();
   int LeftUltrasonic = Ultrasonic.ReadLeft();
   int BackUltrasonic = Ultrasonic.ReadBack();
 
-  if (ForwradUltrasonic < 35) {
+  Serial.println("Done.");  // Debug statement
+
+  Serial.println("Checking Ultrasonic Data");  // Debug statement
+
+  if (ForwradUltrasonic < 35) {  // Check every ultrasonic if it is less than the distance given to each ultrasonic
     Buzzers.Buzzer('F', true);
+
+    Serial.println("Forwrad Buzzer : True");  // Debug statement
+
     delay(500);
   }
 
-  if (RightUltrasonic < 30) {
+  if (RightUltrasonic < 35) {
     Buzzers.Buzzer('R', true);
-    delay(350); 
+
+    Serial.println("Right Buzzer : True");  // Debug statement
+
+    delay(350);
   }
 
   if (LeftUltrasonic < 30) {
     Buzzers.Buzzer('L', true);
+
+    Serial.println("Left Buzzer : True");  // Debug statement
+
     delay(200);
   }
 
   if (BackUltrasonic < 35) {
     Buzzers.Buzzer('B', true);
+
+    Serial.println("Back Buzzer : True");  // Debug statement
+
     delay(100);
   }
 }
+
+// end of  Blind_Helper_Project.ino File //
